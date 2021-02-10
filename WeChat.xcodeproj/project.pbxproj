@@ -45,6 +45,10 @@
 		1C6C5E37251F4CA8005C0FE8 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C5E2E251F4CA8005C0FE8 /* ActivityIndicator.swift */; };
 		1C6C5E38251F4CA8005C0FE8 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C5E2F251F4CA8005C0FE8 /* Separator.swift */; };
 		1C6C5E39251F4CA8005C0FE8 /* StatusBarStyleEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6C5E31251F4CA8005C0FE8 /* StatusBarStyleEnvironment.swift */; };
+		2543773425D2F3B5000EBAD6 /* ChatsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543773325D2F3B5000EBAD6 /* ChatsDataService.swift */; };
+		2543773D25D2F4E2000EBAD6 /* ChatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543773C25D2F4E2000EBAD6 /* ChatsManager.swift */; };
+		2543774425D2F532000EBAD6 /* ChatsDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543774325D2F532000EBAD6 /* ChatsDataDAO.swift */; };
+		2543774925D370B9000EBAD6 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 2543774825D370B9000EBAD6 /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +91,9 @@
 		1C6C5E2E251F4CA8005C0FE8 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		1C6C5E2F251F4CA8005C0FE8 /* Separator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		1C6C5E31251F4CA8005C0FE8 /* StatusBarStyleEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarStyleEnvironment.swift; sourceTree = "<group>"; };
+		2543773325D2F3B5000EBAD6 /* ChatsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsDataService.swift; sourceTree = "<group>"; };
+		2543773C25D2F4E2000EBAD6 /* ChatsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsManager.swift; sourceTree = "<group>"; };
+		2543774325D2F532000EBAD6 /* ChatsDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsDataDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2543774925D370B9000EBAD6 /* SQLite in Frameworks */,
 				1C43B782253859850049FF38 /* VideoPlayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +250,7 @@
 		1C6C5E11251F49DB005C0FE8 /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
+				2543772E25D2F335000EBAD6 /* Store */,
 				1C6C5E12251F49DB005C0FE8 /* WeChatApp.swift */,
 				1C6C5E16251F49DD005C0FE8 /* Assets.xcassets */,
 				1C6C5E2D251F4CA8005C0FE8 /* Components */,
@@ -282,6 +291,32 @@
 			path = Environments;
 			sourceTree = "<group>";
 		};
+		2543772E25D2F335000EBAD6 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				2543773225D2F39F000EBAD6 /* DAO */,
+				2543773025D2F396000EBAD6 /* Service */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		2543773025D2F396000EBAD6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2543773325D2F3B5000EBAD6 /* ChatsDataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2543773225D2F39F000EBAD6 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				2543773C25D2F4E2000EBAD6 /* ChatsManager.swift */,
+				2543774325D2F532000EBAD6 /* ChatsDataDAO.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -300,6 +335,7 @@
 			name = WeChat;
 			packageProductDependencies = (
 				1C43B781253859850049FF38 /* VideoPlayer */,
+				2543774825D370B9000EBAD6 /* SQLite */,
 			);
 			productName = WeChat;
 			productReference = 1C6C5E0F251F49DB005C0FE8 /* WeChat.app */;
@@ -331,6 +367,7 @@
 			mainGroup = 1C6C5E06251F49DB005C0FE8;
 			packageReferences = (
 				1C43B780253859850049FF38 /* XCRemoteSwiftPackageReference "VideoPlayer" */,
+				2543774725D370B9000EBAD6 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 			);
 			productRefGroup = 1C6C5E10251F49DB005C0FE8 /* Products */;
 			projectDirPath = "";
@@ -362,6 +399,7 @@
 				1C429DF0251F4F8200CC9693 /* MomentHome.swift in Sources */,
 				1C429DFA251F4F8200CC9693 /* DiscoverHome.swift in Sources */,
 				1C429DF6251F4F8200CC9693 /* MessageRow.swift in Sources */,
+				2543774425D2F532000EBAD6 /* ChatsDataDAO.swift in Sources */,
 				1C43B799253995450049FF38 /* MessageList.swift in Sources */,
 				1C429DF4251F4F8200CC9693 /* RootView.swift in Sources */,
 				1C43B7A0253995B80049FF38 /* ChatList.swift in Sources */,
@@ -374,6 +412,7 @@
 				1C43B76C253856D30049FF38 /* Member.swift in Sources */,
 				1C43B7AC253999130049FF38 /* ContactRow.swift in Sources */,
 				1C6C5E34251F4CA8005C0FE8 /* Date++.swift in Sources */,
+				2543773D25D2F4E2000EBAD6 /* ChatsManager.swift in Sources */,
 				1C43B7922539935E0049FF38 /* Double++.swift in Sources */,
 				1C6C5E37251F4CA8005C0FE8 /* ActivityIndicator.swift in Sources */,
 				1C429DEE251F4F8200CC9693 /* ChatHome.swift in Sources */,
@@ -390,6 +429,7 @@
 				1C6C5E38251F4CA8005C0FE8 /* Separator.swift in Sources */,
 				1C429DF9251F4F8200CC9693 /* MeHome.swift in Sources */,
 				1C43B7B125399B610049FF38 /* DiscoverRow.swift in Sources */,
+				2543773425D2F3B5000EBAD6 /* ChatsDataService.swift in Sources */,
 				1C43B7A3253995C70049FF38 /* ChatRow.swift in Sources */,
 				1C43B7B825399BF60049FF38 /* MeRow.swift in Sources */,
 				1C429DF8251F4F8200CC9693 /* SearchEntry.swift in Sources */,
@@ -589,6 +629,14 @@
 				kind = branch;
 			};
 		};
+		2543774725D370B9000EBAD6 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -596,6 +644,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1C43B780253859850049FF38 /* XCRemoteSwiftPackageReference "VideoPlayer" */;
 			productName = VideoPlayer;
+		};
+		2543774825D370B9000EBAD6 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2543774725D370B9000EBAD6 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

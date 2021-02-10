@@ -9,19 +9,23 @@
 import SwiftUI
 
 struct ChatList: View {
-    let chats: [Chat]
     
+    @ObservedObject var chatsManager = ChatsManager.default
+    
+    let chats: [Chat]
+
     var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 0) {
-                SearchEntry()
-                ForEach(chats) { chat in
-                    NavigationLink(destination: ChatView(chat: chat)) {
-                        ChatRow(chat: chat)
-                    }
-                    Separator().padding(.leading, 76)
-                }
+        List {
+            SearchEntry()
+                .listRowInsets(EdgeInsets())
+            ForEach(chats) { chat in
+                ListCell(chat: chat)
             }
+            .onDelete(perform: { indexSet in
+                if let index = indexSet.first {
+                    chatsManager.remove(chats[index])
+                }
+            })
             .background(Color("cell"))
         }
     }
@@ -30,5 +34,16 @@ struct ChatList: View {
 struct ChatList_Previews: PreviewProvider {
     static var previews: some View {
         ChatList(chats: Chat.all)
+    }
+}
+
+struct ListCell: View {
+    
+    let chat: Chat
+    
+    var body: some View {
+        NavigationLink(destination: ChatView(chat: chat)) {
+            ChatRow(chat: chat)
+        }
     }
 }

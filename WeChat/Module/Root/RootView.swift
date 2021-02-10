@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct RootView: View {
+    
+    @ObservedObject var chatsManager = ChatsManager.default
     @State private var selection: Int = 0
     
     var body: some View {
@@ -29,7 +31,21 @@ struct RootView: View {
             }
             .navigationBarHidden(itemType.isNavigationBarHidden(selection: selection))
             .navigationBarTitle(itemType.title, displayMode: .inline)
-            .navigationBarItems(trailing: itemType.navigationBarTrailingItems(selection: selection))
+            .navigationBarItems(trailing: Button(action: {
+                self.insertChat()
+            }, label: {
+                Image(systemName: "plus.circle")
+            }))
+        }
+    }
+    
+    private func insertChat() {
+        if chatsManager.chats.count == Chat.all.count { return }
+        let e = Chat.all.randomElement()!
+        if !self.chatsManager.chats.contains(where: {$0.desc == e.desc}) {
+            self.chatsManager.insert(e)
+        }else {
+            insertChat()
         }
     }
     

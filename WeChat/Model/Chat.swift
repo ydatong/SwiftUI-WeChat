@@ -8,14 +8,17 @@
 
 import Foundation
 
+typealias ChatID = UUID
+
 struct Chat: Codable, Identifiable {
-    var id = UUID()
+    var id: ChatID = UUID()
     let desc: String
     let sender: Member
     let time: String
 }
 
 extension Chat {
+    
     static let all: [Chat] = [
         swiftui,
         goddess,
